@@ -4,7 +4,7 @@
     dest: /tmp/job.xml
 
 - name: Create Jobs
-  community.general.jenkins_build:
+  community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/job.xml') }}"
     name: "{{item}}"
     user: admin
