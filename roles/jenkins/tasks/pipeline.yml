@@ -1,3 +1,13 @@
+- name: Create config files
+  ansible.builtin.template:
+    src: job.xml
+    dest: /tmp/job-{{item.name}}.xml
+
+
+
+
+
+
 - name: Including Pipeline Jobs file
   ansible.builtin.include_tasks: pipeline.yml
   loop:
