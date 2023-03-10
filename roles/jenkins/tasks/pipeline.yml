@@ -1,0 +1,4 @@
+- name: Including Pipeline Jobs file
+  ansible.builtin.include_tasks: pipeline.yml
+  loop:
+    - frontend
