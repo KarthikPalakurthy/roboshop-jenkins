@@ -6,9 +6,9 @@ echo '
     "Changes": [{
       "Action": "UPSERT",
       "ResourceRecordSet": {
-        "Name": "COMPONENT.DOMAIN",
+        "Name": "jenkins.devpractice.online",
         "Type": "A",
-        "TTL": 30,
+        "TTL": 15,
         "ResourceRecords": [{ "Value": "IPADDRESS"}]
       }}]
 }' | sed -e "s/IPADDRESS/${IP}/" >/tmp/jenkins.json
