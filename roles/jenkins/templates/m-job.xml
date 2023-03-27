@@ -22,11 +22,12 @@
         <data>
             <jenkins.branch.BranchSource>
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git">
-                    <id>26ace962-8972-491d-b6ee-ae91a5d813a4</id>
-                    <remote>https://github.com/KarthikPalakurthy/roboshop-jenkins</remote>
+                    <id>{{unique_key}}</id>
+                    <remote>https://github.com/KarthikPalakurthy/{{item.name}}.git</remote>
                     <credentialsId></credentialsId>
                     <traits>
                         <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
+                        <jenkins.plugins.git.traits.TagDiscoveryTrait/>
                     </traits>
                 </source>
                 <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">

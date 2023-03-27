@@ -1,0 +1,14 @@
+- name: Create config files
+  ansible.builtin.template:
+    src: m-job.xml
+    dest: /tmp/m-job-{{item.name}}.xml
+  vars:
+    unique_key: lookup('community.general.random_string', length=12, special=false, upper=false)
+
+- name: Creating the Job - "{{item.dir}}/{{item.name}}"
+  community.general.jenkins_job:
+    config: "{{ lookup('file', '/tmp/m-job-{{item.name}}.xml') }}"
+    name: "{{item.dir}}/{{item.name}}"
+    user: admin
+    password: "{{jenkins_password}}"
+    url: http://172.31.11.212:8080
