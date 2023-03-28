@@ -16,14 +16,19 @@
         <numToKeep>-1</numToKeep>
         <abortBuilds>false</abortBuilds>
     </orphanedItemStrategy>
-    <triggers/>
+    <triggers>
+        <com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger plugin="multibranch-scan-webhook-trigger">
+            <spec></spec>
+            <token>{{item.name}}</token>
+        </com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger>
+    </triggers>
     <disabled>false</disabled>
     <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api">
         <data>
             <jenkins.branch.BranchSource>
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git">
                     <id>{{unique_key}}</id>
-                    <remote>https://github.com/KarthikPalakurthy/{{item.name}}.git</remote>
+                    <remote>https://github.com/KarthikPalakurthy/{{item.name}}</remote>
                     <credentialsId></credentialsId>
                     <traits>
                         <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
@@ -33,6 +38,12 @@
                 <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
                     <properties class="empty-list"/>
                 </strategy>
+                <buildStrategies>
+                    <jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl plugin="basic-branch-build-strategies">
+                        <atLeastMillis>-1</atLeastMillis>
+                        <atMostMillis>604800000</atMostMillis>
+                    </jenkins.branch.buildstrategies.basic.TagBuildStrategyImpl>
+                </buildStrategies>
             </jenkins.branch.BranchSource>
         </data>
         <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
