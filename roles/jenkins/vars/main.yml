@@ -12,4 +12,4 @@ folders:
   - infra
 
 single_pipeline_jobs:
-  - { name: "frontend", dir: "infra" }
+  - { name: "roboshop-infra", dir: "infra" }
