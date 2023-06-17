@@ -10,8 +10,9 @@ ci_pipeline_jobs:
 folders:
   - CIPipelines
   - infra
+  - CD
 
 single_pipeline_jobs:
   - { name: "roboshop-infra", dir: "infra" }
-  - { name: "roboshop-helm", dir: "infra" }
+  - { name: "roboshop-helm", dir: "CD" }
 
