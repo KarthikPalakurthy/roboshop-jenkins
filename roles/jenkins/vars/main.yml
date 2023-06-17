@@ -13,3 +13,5 @@ folders:
 
 single_pipeline_jobs:
   - { name: "roboshop-infra", dir: "infra" }
+  - { name: "roboshop-helm", dir: "infra" }
+
